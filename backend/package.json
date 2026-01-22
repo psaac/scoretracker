@@ -1,0 +1,57 @@
+{
+  "name": "score-tracker-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "downloadjs": "^1.4.7",
+    "fast-xml-parser": "^5.3.3",
+    "file-type": "^21.0.0",
+    "form-data": "^4.0.4",
+    "he": "^1.2.0",
+    "js-cookie": "^3.0.5",
+    "jsdom": "^27.0.0",
+    "jsonschema": "^1.5.0",
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.ts"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/events": "^3.0.3",
+    "@types/express": "^5.0.6",
+    "@types/he": "^1.2.3",
+    "@types/node": "^25.0.9",
+    "cors": "^2.8.5",
+    "eslint": "latest",
+    "eslint-plugin-react": "latest",
+    "events": "^3.3.0",
+    "express": "^5.2.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,270 @@
+#root {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  max-width: 100%;
+  margin: 0 auto;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  padding-bottom: 6rem;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.page {
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+.page p {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #242424;
+  border-top: 1px solid #404040;
+  padding: 0.5rem 0;
+  padding-bottom: max(
+    0.5rem,
+    env(safe-area-inset-bottom)
+  ); /* Support for iPhone notch */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.bottom-nav-content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 600px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-height: 44px; /* Minimum touch target size */
+  min-width: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item:active {
+  transform: scale(0.95);
+  background: rgba(100, 108, 255, 0.1);
+  border-radius: 8px;
+}
+
+.nav-item.active {
+  color: #646cff;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.nav-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Optimisations mobiles */
+@media (max-width: 480px) {
+  .content {
+    padding: 0.75rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .nav-item {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .nav-icon {
+    font-size: 1.3rem;
+  }
+
+  .nav-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Support pour les petits écrans */
+@media (max-width: 360px) {
+  .nav-label {
+    display: none;
+  }
+
+  .nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .content {
+    padding-bottom: 4.5rem;
+  }
+
+  .bottom-nav {
+    padding: 0.3rem 0;
+  }
+
+  .nav-item {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .nav-label {
+    font-size: 0.6rem;
+  }
+}
+
+/* Desktop et tablettes (768px et plus) */
+@media (min-width: 768px) {
+  .app-container {
+    flex-direction: row;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: auto;
+    width: 80px;
+    height: 100vh;
+    border-top: none;
+    border-right: 1px solid #404040;
+    padding: 1rem 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .bottom-nav-content {
+    flex-direction: column;
+    height: 100%;
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .content {
+    margin-left: 80px;
+    padding: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .nav-item {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    min-height: 60px;
+  }
+
+  .nav-item:active {
+    transform: scale(0.95);
+  }
+
+  .nav-item:hover {
+    background: rgba(100, 108, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  .nav-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .nav-label {
+    font-size: 0.75rem;
+    display: block;
+  }
+
+  .page {
+    text-align: left;
+    margin-top: 0;
+  }
+}
+
+/* Grand desktop (1024px et plus) */
+@media (min-width: 1024px) {
+  .bottom-nav {
+    width: 200px;
+  }
+
+  .content {
+    margin-left: 200px;
+    padding: 3rem;
+  }
+
+  .nav-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .nav-label {
+    font-size: 0.95rem;
+  }
+}
+
+/* Très grand écran (1440px et plus) */
+@media (min-width: 1440px) {
+  .bottom-nav {
+    width: 240px;
+  }
+
+  .content {
+    margin-left: 240px;
+    padding: 4rem;
+  }
+
+  .page {
+    max-width: 1400px;
+  }
+}
